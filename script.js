@@ -1,7 +1,7 @@
-// script.js - VERSIÓN BUCLE INFINITO PERFECTO
+// script.js - VERSIÓN MAESTRA FINAL
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Animaciones Hero
+    // 1. Animaciones Hero
     const animIds = ['logo', 'txt1', 'txt2', 'contactBtn'];
     const delays = [400, 800, 1150, 1700];
     animIds.forEach((id, i) => {
@@ -15,16 +15,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const u = document.getElementById('txt2underline');
     if(u) setTimeout(() => u.classList.add('active'), 1900);
 
-    // Flecha
+    // Flecha Scroll
     const arrow = document.getElementById('scrollDownArrow');
     if(arrow) {
         setTimeout(() => arrow.classList.add('visible'), 2500);
-        arrow.addEventListener('click', () => window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' }));
+        arrow.addEventListener('click', () => {
+            const promo = document.getElementById('promociones') || document.querySelector('.promotions-section');
+            if(promo) promo.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Scroll al centro de la sección
+        });
     }
 
-    // Carruseles
+    // 2. Iniciar Carruseles
     if(document.getElementById('offer-carousel-wrapper')) {
-        new InfiniteSlider('offer-carousel-wrapper', { speed: 0.5, direction: 'right', isFullWidth: true });
+        new InfiniteSlider('offer-carousel-wrapper', { speed: 0.5, direction: 'right', isFullWidthSlide: true });
     }
     if(document.getElementById('carousel-categorias')) {
         new InfiniteSlider('carousel-categorias', { speed: 0.8, direction: 'left' });
@@ -33,24 +36,24 @@ document.addEventListener('DOMContentLoaded', () => {
         new InfiniteSlider('carousel-productos', { speed: 0.8, direction: 'right' });
     }
 
-    // Menú Sándwich
+    // 3. Menú Sándwich
     const mb = document.getElementById('menu-toggle'), nm = document.getElementById('nav-menu');
     if(mb && nm) {
         mb.addEventListener('click', (e) => { e.stopPropagation(); nm.classList.toggle('hidden'); });
         document.addEventListener('click', (e) => { if(!nm.contains(e.target) && !mb.contains(e.target)) nm.classList.add('hidden'); });
     }
 
-    // Timer
+    // 4. Timer
     if(document.querySelector('.time-val')) startUrynolTimer(86400);
 });
 
 function startUrynolTimer(duration) {
-    let timer = duration, saved = localStorage.getItem('timerPromo');
+    let timer = duration, saved = localStorage.getItem('timerPromoV3');
     if(saved) {
         let diff = Math.floor((new Date().getTime() - parseInt(saved))/1000);
         timer = duration - diff;
-        if(timer < 0) { timer = duration; localStorage.setItem('timerPromo', new Date().getTime().toString()); }
-    } else localStorage.setItem('timerPromo', new Date().getTime().toString());
+        if(timer < 0) { timer = duration; localStorage.setItem('timerPromoV3', new Date().getTime().toString()); }
+    } else localStorage.setItem('timerPromoV3', new Date().getTime().toString());
 
     setInterval(() => {
         let h = parseInt(timer/3600,10), m = parseInt((timer%3600)/60,10), s = parseInt(timer%60,10);
@@ -59,7 +62,7 @@ function startUrynolTimer(duration) {
             const v = c.querySelectorAll('.time-val');
             if(v.length>=3){ v[0].textContent=h; v[1].textContent=m; v[2].textContent=s; }
         });
-        if(--timer<0) { timer = duration; localStorage.setItem('timerPromo', new Date().getTime().toString()); }
+        if(--timer<0) { timer = duration; localStorage.setItem('timerPromoV3', new Date().getTime().toString()); }
     }, 1000);
 }
 
@@ -70,7 +73,7 @@ class InfiniteSlider {
         this.scroller = this.wrap.querySelector('.scroller');
         this.prev = this.wrap.querySelector('.prev');
         this.next = this.wrap.querySelector('.next');
-        this.opts = Object.assign({speed:1, direction:'left', isFullWidth: false}, opts);
+        this.opts = Object.assign({speed:1, direction:'left', isFullWidthSlide: false}, opts);
 
         this.hover = false; this.drag = false; this.manual = false;
         this.startX = 0; this.startL = 0; this.tm = null;
@@ -82,14 +85,14 @@ class InfiniteSlider {
 
     setup() {
         const html = this.scroller.innerHTML;
-        // Duplicamos x3 para garantizar bucle infinito fluido
-        this.scroller.innerHTML = html + html + html;
-        
-        // Esperar render para calcular el punto de reinicio (ancho de 1 set completo)
+        const numCopies = this.opts.isFullWidthSlide ? 3 : 4; 
+        this.scroller.innerHTML = html.repeat(numCopies); 
         setTimeout(() => {
-            this.resetPoint = this.scroller.scrollWidth / 3;
-            this.scroller.scrollLeft = this.resetPoint; // Empezar en el medio
-        }, 100);
+            this.maxScroll = this.scroller.scrollWidth / numCopies;
+            if (this.opts.direction === 'right' || this.opts.isFullWidthSlide) {
+                this.scroller.scrollLeft = this.maxScroll; 
+            }
+        }, 200);
     }
 
     events() {
@@ -98,6 +101,7 @@ class InfiniteSlider {
         
         this.scroller.addEventListener('mousedown', e => this.startDrag(e.pageX));
         this.scroller.addEventListener('mouseup', () => this.stopDrag());
+        this.scroller.addEventListener('mouseleave', () => this.stopDrag());
         this.scroller.addEventListener('mousemove', e => this.moveDrag(e));
         
         this.scroller.addEventListener('touchstart', e => this.startDrag(e.touches[0].pageX), {passive:true});
@@ -106,8 +110,23 @@ class InfiniteSlider {
             if(this.drag) this.moveDrag({pageX: e.touches[0].pageX, preventDefault:()=>{}});
         }, {passive:true});
 
-        if(this.prev) this.prev.addEventListener('click', () => this.moveManual(-1));
-        if(this.next) this.next.addEventListener('click', () => this.moveManual(1));
+        const links = this.scroller.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (this.scroller.classList.contains('active')) { e.preventDefault(); e.stopPropagation(); }
+            });
+            const img = link.querySelector('img');
+            if(img) img.addEventListener('dragstart', e => e.preventDefault());
+        });
+
+        if(this.prev) {
+            const move = this.opts.isFullWidthSlide ? this.wrap.offsetWidth : 320;
+            this.prev.addEventListener('click', () => this.moveManual(-move));
+        }
+        if(this.next) {
+            const move = this.opts.isFullWidthSlide ? this.wrap.offsetWidth : 320;
+            this.next.addEventListener('click', () => this.moveManual(move));
+        }
     }
 
     startDrag(x) {
@@ -133,17 +152,10 @@ class InfiniteSlider {
         this.scroller.scrollLeft = this.startL - walk;
     }
 
-    moveManual(dir) {
+    moveManual(amount) {
         this.manual = true;
         clearTimeout(this.tm);
-        
-        // Calcular ancho de desplazamiento
-        const moveAmount = this.opts.isFullWidth ? this.wrap.clientWidth : 320;
-        
-        this.scroller.classList.add('smooth-scroll');
-        this.scroller.scrollLeft += (dir * moveAmount);
-        
-        setTimeout(() => this.scroller.classList.remove('smooth-scroll'), 500);
+        this.scroller.scrollBy({ left: amount, behavior: 'smooth' });
         this.resetTimer();
     }
 
@@ -158,17 +170,11 @@ class InfiniteSlider {
             if(this.opts.direction === 'left') this.scroller.scrollLeft += s;
             else this.scroller.scrollLeft -= s;
         }
-
-        // BUCLE INFINITO MATEMÁTICO
-        // Si pasamos el punto de reinicio (fin del set 2), volvemos al inicio del set 2
-        if(this.scroller.scrollLeft >= (this.resetPoint * 2)) {
-            this.scroller.scrollLeft -= this.resetPoint;
+        if(this.scroller.scrollLeft >= (this.maxScroll * 2)) {
+            this.scroller.scrollLeft = this.maxScroll;
+        } else if(this.scroller.scrollLeft <= 0) {
+            this.scroller.scrollLeft = this.maxScroll;
         }
-        // Si retrocedemos antes del set 2, saltamos al final del set 2
-        else if(this.scroller.scrollLeft <= 0) {
-            this.scroller.scrollLeft += this.resetPoint;
-        }
-
         requestAnimationFrame(this.animate.bind(this));
     }
 }
