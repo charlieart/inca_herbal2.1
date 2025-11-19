@@ -1,26 +1,21 @@
-/* style.css - VERSIÓN FINAL (MÓVIL CORREGIDO) */
+/* style.css - VERSIÓN MAESTRA FINAL */
 
-/* --- 1. BASES Y ANIMACIONES --- */
 body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
 
+/* ANIMACIONES */
 .fade-in-up { animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-@keyframes fadeInUp { 
-  from { opacity: 0; transform: translateY(20px); } 
-  to { opacity: 1; transform: translateY(0); } 
-}
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 .text-anim { opacity: 0; transform: translateY(15px); }
-
 .underline-anim { display: block; height: 3px; background: #228142; width: 0; transition: width 0.8s ease-out; margin: 0.15em auto 0; }
 .underline-anim.active { width: 100%; }
 
-/* --- 2. HERO SECTION --- */
+/* --- HERO SECTION (CENTRADO CORRECTO) --- */
 .hero-section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 90vh; 
-  max-height: 900px;
+  justify-content: center; /* Centrado vertical */
+  align-items: center;     /* Centrado horizontal */
+  min-height: 100vh;       /* Altura completa */
   width: 100%;
   position: relative;
   background-color: white;
@@ -28,120 +23,37 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
   box-sizing: border-box;
 }
 
-#logo {
-  width: 180px; 
-  height: auto;
-  margin-bottom: 2.5rem; 
-}
+#logo { width: 180px; height: auto; margin-bottom: 2.5rem; }
+.hero-section > div.w-48 { width: auto !important; max-width: 90%; margin-bottom: 3.5rem !important; }
+#contactBtn { margin-top: 0; margin-bottom: 4rem; font-size: 1rem; padding: 1rem 2.5rem; }
 
-.hero-section > div.w-48 {
-  width: auto !important; 
-  max-width: 90%;
-  margin-bottom: 3.5rem !important; 
-}
-
-#contactBtn {
-  margin-top: 0;
-  margin-bottom: 4rem; 
-  font-size: 1rem;
-  padding: 1rem 2.5rem;
-}
-
-/* Flecha Scroll Down */
+/* FLECHA SCROLL DOWN (PEQUEÑA Y ELEGANTE) */
 .scroll-down-arrow {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  color: #166534;
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  text-decoration: none;
-  opacity: 0; 
+  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  color: #166534; text-decoration: none; opacity: 0; 
   transition: opacity 1s ease, transform 0.3s ease;
-  animation: bounce 2s infinite 3s;
-  cursor: pointer;
-  z-index: 10;
+  animation: bounce 2s infinite 3s; cursor: pointer; z-index: 10;
 }
-.scroll-down-arrow.visible { opacity: 1; }
-.scroll-down-arrow svg { width: 18px; height: 18px; stroke-width: 2; }
+.scroll-down-arrow span { font-size: 0.6rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+.scroll-down-arrow svg { width: 14px; height: 14px; stroke-width: 1.5; }
 .scroll-down-arrow:hover { transform: translateX(-50%) translateY(3px); opacity: 1; }
+.scroll-down-arrow.visible { opacity: 1; }
+@keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); } 40% { transform: translate(-50%, -4px); } 60% { transform: translate(-50%, -2px); } }
 
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
-  40% { transform: translate(-50%, -5px); }
-  60% { transform: translate(-50%, -2px); }
-}
+/* --- CARRUSEL OFERTAS --- */
+.promotions-section { background: linear-gradient(135deg, #f5fdf5 0%, #e0f2f1 100%); padding: 4rem 0; position: relative; width: 100%; overflow: hidden; }
+.carousel-wrapper { position: relative; width: 100%; max-width: 1400px; margin: 0 auto; overflow: hidden; padding: 0; }
 
-/* --- 3. SECCIÓN PROMOCIONES --- */
-.promotions-section {
-  background: linear-gradient(135deg, #f5fdf5 0%, #e0f2f1 100%);
-  padding: 4rem 0;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-/* Wrapper General */
-.carousel-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  overflow: hidden;
-  padding: 0;
-}
-
-/* Pista de desplazamiento */
-.scroller {
-  display: flex;
-  width: 100%;
-  overflow-x: auto;
-  cursor: grab;
-  /* CRÍTICO: Snap obligatorio para centrar al soltar */
-  scroll-snap-type: x mandatory; 
-  scroll-behavior: smooth; 
-  -ms-overflow-style: none; 
-  scrollbar-width: none; 
-  user-select: none; 
-  -webkit-user-select: none;
-}
+.scroller { display: flex; width: 100%; overflow-x: auto; cursor: grab; scroll-snap-type: x mandatory; scroll-behavior: smooth; -ms-overflow-style: none; scrollbar-width: none; user-select: none; -webkit-user-select: none; }
 .scroller::-webkit-scrollbar { display: none; }
 .scroller.active { cursor: grabbing; scroll-behavior: auto; }
 
-/* --- SLIDE DE OFERTA --- */
-.offer-slide {
-  flex: 0 0 100%; 
-  min-width: 100%;
-  width: 100%;
-  box-sizing: border-box;
-  scroll-snap-align: center; /* Se pega al centro */
-  scroll-snap-stop: always;
-  display: flex;
-  justify-content: center;
-}
-
-.offer-container-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 4rem;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 80px; 
-  min-height: 500px;
-}
+.offer-slide { flex: 0 0 100%; min-width: 100%; width: 100%; box-sizing: border-box; scroll-snap-align: center; scroll-snap-stop: always; display: flex; justify-content: center; }
+.offer-container-inner { display: flex; align-items: center; justify-content: space-between; gap: 4rem; width: 100%; max-width: 1200px; margin: 0 auto; padding: 1rem 80px; min-height: 500px; }
 
 .promo-content { flex: 1; z-index: 2; text-align: left; }
 .promo-image-col { flex: 1; display: flex; justify-content: center; align-items: center; position: relative; }
-
 .promo-badge { padding: 0.5rem 1.2rem; border-radius: 30px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 .promo-title { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; color: #1e4a1e; margin-bottom: 0.5rem; font-weight: 800; }
 .promo-subtitle { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 600; margin-bottom: 1.5rem; }
@@ -159,12 +71,10 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
 .time-val { font-size: 1.4rem; font-weight: 700; display: block; line-height: 1; }
 .time-label { font-size: 0.6rem; text-transform: uppercase; color: #aaa; }
 .timer-separator { font-size: 1.5rem; font-weight: bold; color: #2b2b2b; padding-top: 0.2rem; }
-
 .btn-cta-promo { color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(0,0,0,0.2); transition: all 0.3s ease; display: inline-block; animation: pulse 2s infinite; }
 .btn-cta-promo:hover { transform: translateY(-3px); filter: brightness(1.1); }
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(34, 129, 66, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(34, 129, 66, 0); } 100% { box-shadow: 0 0 0 0 rgba(34, 129, 66, 0); } }
 .guarantee { margin-top: 1rem; font-size: 0.85rem; color: #666; display: flex; align-items: center; gap: 8px; }
-
 .product-img-desktop { width: 100%; max-width: 500px; height: auto; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2)); z-index: 1; animation: float 6s ease-in-out infinite; }
 .bg-circle { display: none; }
 .mobile-product-container { display: none; } 
@@ -172,7 +82,6 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
 
 /* --- 4. CARRUSELES PEQUEÑOS --- */
 #carousel-categorias .scroller, #carousel-productos .scroller { gap: 1.5rem; scroll-snap-type: none; }
-
 .scroller-item { flex: 0 0 auto; width: 16rem; transition: transform 0.3s ease; }
 .scroller-item:hover { transform: translateY(-5px); }
 .card-image { height: 14rem; width: 100%; object-fit: contain; background-color: #fff !important; padding: 1rem; pointer-events: none; }
@@ -180,15 +89,8 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
 .card-box:hover { border-color: #22c55e; }
 .scroller-item a { text-decoration: none; color: inherit; display: block; height: 100%; }
 
-/* Botones Navegación */
-.nav-btn {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  width: 45px; height: 45px; border-radius: 50%;
-  background-color: rgba(34, 129, 66, 0.8); color: white; border: none;
-  cursor: pointer; z-index: 50; 
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.2s; opacity: 0.8;
-}
+/* Botones Nav */
+.nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 45px; height: 45px; border-radius: 50%; background-color: rgba(34, 129, 66, 0.8); color: white; border: none; cursor: pointer; z-index: 50; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.2s; opacity: 0.8; }
 .nav-btn:hover { background-color: #165e30; transform: translateY(-50%) scale(1.1); }
 .nav-btn.prev { left: 10px; }
 .nav-btn.next { right: 10px; }
@@ -200,7 +102,7 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
 .nav-link:last-child { border-bottom: none; }
 .nav-icon { width: 8px; height: 8px; border-radius: 50%; margin-right: 10px; }
 
-/* Layout General */
+/* Layout */
 .section-50vh { min-height: 50vh; padding: 4rem 0; background-color: #fff; }
 .bg-alt { background-color: #f0fdf4; }
 .products-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 2rem; padding: 2rem; max-width: 1200px; margin: 0 auto; }
@@ -208,35 +110,20 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
 @media (min-width: 640px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
 
-/* --- RESPONSIVE MÓVIL (CORRECCIÓN CRÍTICA) --- */
+/* --- RESPONSIVE MÓVIL --- */
 @media (max-width: 968px) {
-  /* HERO: Más espacio arriba para que no se pegue */
-  .hero-section { 
-    min-height: 100vh; 
-    /* Padding superior aumentado para bajar todo el contenido */
-    padding-top: 8rem !important; 
-    justify-content: flex-start; /* Alinear arriba, no al centro */
-  }
+  .hero-section { padding-top: 5rem; justify-content: center; }
+  .scroll-down-arrow { bottom: 20px; }
   
-  /* Logo y texto con márgenes reducidos entre sí para caber, pero lejos del borde superior */
-  #logo { width: 140px; margin-bottom: 1.5rem; }
-  .hero-section > div.w-48 { margin-bottom: 2rem !important; }
-  #contactBtn { margin-bottom: 2.5rem; }
-
-  /* Flecha visible y bien posicionada */
-  .scroll-down-arrow { bottom: 20px; opacity: 1 !important; animation: bounce 2s infinite 1s; }
-  
-  /* Ofertas */
   .offer-container-inner { flex-direction: column; text-align: center; padding: 2rem 1rem; gap: 2rem; }
-  .promo-content { text-align: center; width: 100%; padding: 0 20px; } /* Padding lateral para que no toque bordes */
+  .promo-content { text-align: center; width: 100%; }
   .offer-module { justify-content: center; }
   .promo-image-col { display: none; } 
   .mobile-product-container { display: block; margin: 1rem auto; width: 100%; text-align: center; }
   .mobile-img { max-width: 80%; height: auto; max-height: 300px; object-fit: contain; margin: 0 auto; animation: float 6s infinite; display: block; }
-  .promo-lead { margin-left: auto; margin-right: auto; font-size: 1rem; }
+  .promo-lead { margin-left: auto; margin-right: auto; }
   
-  /* BOTONES VISIBLES EN MÓVIL */
-  .nav-btn { opacity: 0.8; width: 35px; height: 35px; background-color: rgba(34, 129, 66, 0.5); }
+  .nav-btn { width: 35px; height: 35px; opacity: 0.6; }
   #offer-carousel-wrapper .nav-btn.prev { left: 5px; }
   #offer-carousel-wrapper .nav-btn.next { right: 5px; }
   

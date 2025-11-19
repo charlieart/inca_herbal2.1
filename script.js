@@ -1,4 +1,4 @@
-// script.js - VERSIÓN FINAL
+// script.js - VERSIÓN DEFINITIVA (SCROLL CENTRADO)
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Animaciones Hero
@@ -15,13 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const u = document.getElementById('txt2underline');
     if(u) setTimeout(() => u.classList.add('active'), 1900);
 
-    // Flecha Scroll
+    // --- CORRECCIÓN: FLECHA SCROLL AL CENTRO ---
     const arrow = document.getElementById('scrollDownArrow');
     if(arrow) {
         setTimeout(() => arrow.classList.add('visible'), 2500);
-        arrow.addEventListener('click', () => {
-            const promo = document.getElementById('promociones') || document.querySelector('.promotions-section');
-            if(promo) promo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        arrow.addEventListener('click', (e) => {
+            e.preventDefault(); // Evita comportamientos extraños
+            const promo = document.getElementById('promociones');
+            if(promo) {
+                // 'center' obliga al navegador a poner la sección justo en el medio de la pantalla
+                promo.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
         });
     }
 
@@ -48,12 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function startUrynolTimer(duration) {
-    let timer = duration, saved = localStorage.getItem('timerPromoV2');
+    let timer = duration, saved = localStorage.getItem('timerPromoV3');
     if(saved) {
         let diff = Math.floor((new Date().getTime() - parseInt(saved))/1000);
         timer = duration - diff;
-        if(timer < 0) { timer = duration; localStorage.setItem('timerPromoV2', new Date().getTime().toString()); }
-    } else localStorage.setItem('timerPromoV2', new Date().getTime().toString());
+        if(timer < 0) { timer = duration; localStorage.setItem('timerPromoV3', new Date().getTime().toString()); }
+    } else localStorage.setItem('timerPromoV3', new Date().getTime().toString());
 
     setInterval(() => {
         let h = parseInt(timer/3600,10), m = parseInt((timer%3600)/60,10), s = parseInt(timer%60,10);
@@ -62,7 +66,7 @@ function startUrynolTimer(duration) {
             const v = c.querySelectorAll('.time-val');
             if(v.length>=3){ v[0].textContent=h; v[1].textContent=m; v[2].textContent=s; }
         });
-        if(--timer<0) { timer = duration; localStorage.setItem('timerPromoV2', new Date().getTime().toString()); }
+        if(--timer<0) { timer = duration; localStorage.setItem('timerPromoV3', new Date().getTime().toString()); }
     }, 1000);
 }
 
@@ -85,13 +89,11 @@ class InfiniteSlider {
 
     setup() {
         const html = this.scroller.innerHTML;
-        // Duplicamos x3 para carrusel infinito
         const numCopies = this.opts.isFullWidthSlide ? 3 : 4; 
         this.scroller.innerHTML = html.repeat(numCopies); 
         setTimeout(() => {
             this.maxScroll = this.scroller.scrollWidth / numCopies;
-            // Iniciar en el medio
-            if (this.opts.direction === 'right' || this.opts.isFullWidthSlide) {
+            if (this.options.direction === 'right' || this.options.isFullWidthSlide) {
                 this.scroller.scrollLeft = this.maxScroll; 
             }
         }, 200);
@@ -122,12 +124,11 @@ class InfiniteSlider {
         });
 
         if(this.prev) {
-            // Si es full width, mueve el ancho del wrapper. Si no, 320px.
-            const move = this.opts.isFullWidthSlide ? this.wrap.clientWidth : 320;
+            const move = this.opts.isFullWidthSlide ? this.wrap.offsetWidth : 320;
             this.prev.addEventListener('click', () => this.moveManual(-move));
         }
         if(this.next) {
-            const move = this.opts.isFullWidthSlide ? this.wrap.clientWidth : 320;
+            const move = this.opts.isFullWidthSlide ? this.wrap.offsetWidth : 320;
             this.next.addEventListener('click', () => this.moveManual(move));
         }
     }
@@ -158,10 +159,7 @@ class InfiniteSlider {
     moveManual(amount) {
         this.manual = true;
         clearTimeout(this.tm);
-        
-        // Usamos scrollBy, el CSS scroll-snap hará el centrado final
         this.scroller.scrollBy({ left: amount, behavior: 'smooth' });
-        
         this.resetTimer();
     }
 
