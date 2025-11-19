@@ -13,18 +13,18 @@
 <main class="flex-1">
 
   <section class="hero-section">
-    <img src="logo-inca.jpg" alt="Logotipo de Inca Herbal" id="logo" class="start-hidden opacity-0" loading="lazy">
+    <img src="logo-inca.jpg" alt="Logotipo de Inca Herbal" id="logo" loading="lazy">
 
-    <div class="w-full max-w-md mt-6 mb-3 flex flex-row items-center justify-center select-none text-center whitespace-nowrap relative" style="width: auto;">
-      <span id="txt1" class="text-[0.88rem] sm:text-[1.13rem] font-bold start-hidden opacity-0" style="color:#64C680; letter-spacing: .03em;">Cuidado natural</span>
-      <span class="text-[0.88rem] sm:text-[1.13rem] font-bold start-hidden opacity-0" style="width:0.8em;">&nbsp;</span>
+    <div class="w-48 mt-6 mb-3 flex flex-row items-center justify-center select-none text-center whitespace-nowrap relative">
+      <span id="txt1" class="text-[0.88rem] sm:text-[1.13rem] font-bold text-anim" style="color:#64C680; letter-spacing: .03em;">Cuidado natural</span>
+      <span class="text-[0.88rem] sm:text-[1.13rem] font-bold text-anim" style="width:0.8em;">&nbsp;</span>
       <span id="txt2wrap" class="relative">
-        <span id="txt2" class="text-[0.88rem] sm:text-[1.13rem] font-semibold start-hidden opacity-0" style="color:#228142; letter-spacing: .01em;">para ti y tu familia</span>
+        <span id="txt2" class="text-[0.88rem] sm:text-[1.13rem] font-semibold text-anim" style="color:#228142; letter-spacing: .01em;">para ti y tu familia</span>
         <span id="txt2underline" class="underline-anim" style="background:#228142;"></span>
       </span>
     </div>
     
-    <a href="https://wa.link/sjaaao" target="_blank" id="contactBtn" class="start-hidden opacity-0 mt-7 px-8 py-3 rounded-full text-[1rem] shadow-lg border-2 inline-block hover:bg-green-50" style="color:#228142; background:#fff; border-color:#228142; text-decoration: none;">
+    <a href="https://wa.link/sjaaao" target="_blank" id="contactBtn" class="mt-7 px-8 py-3 rounded-full text-[1rem] shadow-lg transition opacity-0 fade-in-up border-2 inline-block hover:bg-green-50" style="color:#228142; background:#fff; border-color:#228142; text-decoration: none;">
       Comunícate al 933 997 321
     </a>
 
@@ -38,6 +38,7 @@
 
   <section id="promociones" class="promotions-section">
     <div id="offer-carousel-wrapper" class="carousel-wrapper group">
+        
         <button class="nav-btn prev">&#10094;</button>
         <button class="nav-btn next">&#10095;</button>
 
@@ -49,7 +50,7 @@
                         <span class="promo-badge" style="color: #228142; background-color: #e8f5e9;">Oferta Especial - 15% OFF</span>
                         <h1 class="promo-title">HERBALAX</h1>
                         <h2 class="promo-subtitle" style="color: #228142;">Adiós al Estreñimiento</h2>
-                        <p class="promo-lead">Regula tu tránsito intestinal de forma natural. Depura el organismo, alivia la pesadez estomacal.</p>
+                        <p class="promo-lead">Regula tu tránsito intestinal de forma natural. Depura el organismo, alivia la pesadez estomacal y recupera tu bienestar digestivo.</p>
                         <div class="mobile-product-container"><img src="herbalax-sw.png" alt="Herbalax" class="mobile-img"></div>
                         <div class="offer-module">
                             <div class="price-card" style="border-left-color: #228142;">
@@ -74,7 +75,7 @@
                         <span class="promo-badge" style="color: #7f5539; background-color: #fdf3eb;">Oferta Especial - 15% OFF</span>
                         <h1 class="promo-title">COLÁGENO</h1>
                         <h2 class="promo-subtitle" style="color: #7f5539;">Huesos Fuertes</h2>
-                        <p class="promo-lead">Recupera tu movilidad y dile adiós al dolor articular. Fórmula hidrolizada de máxima absorción.</p>
+                        <p class="promo-lead">Recupera tu movilidad y dile adiós al dolor articular. Fórmula hidrolizada de máxima absorción para regenerar tejidos.</p>
                         <div class="mobile-product-container"><img src="colageno-sw.png" alt="Colágeno" class="mobile-img"></div>
                         <div class="offer-module">
                             <div class="price-card" style="border-left-color: #7f5539;">
@@ -99,7 +100,7 @@
                         <span class="promo-badge" style="color: #7f5539; background-color: #fdf3eb;">Oferta Especial - 15% OFF</span>
                         <h1 class="promo-title">CITRATO</h1>
                         <h2 class="promo-subtitle" style="color: #7f5539;">Función Muscular</h2>
-                        <p class="promo-lead">Potasio esencial para el correcto funcionamiento de tus músculos. Previene calambres.</p>
+                        <p class="promo-lead">Potasio esencial para el correcto funcionamiento de tus músculos. Previene calambres y mejora el rendimiento físico.</p>
                         <div class="mobile-product-container"><img src="citrato-sw.png" alt="Citrato" class="mobile-img"></div>
                         <div class="offer-module">
                             <div class="price-card" style="border-left-color: #7f5539;">
@@ -117,6 +118,7 @@
                     <div class="promo-image-col"><img src="citrato-sw.png" alt="Citrato" class="product-img-desktop"></div>
                 </div>
             </div>
+
         </div>
     </div>
   </section>
@@ -146,22 +148,16 @@
       <div class="scroller">
         <div class="scroller-item"><a href="sistema-respiratorio.html"><div class="card-box"><img src="Inca-plano.png" class="card-image"><h3 class="font-semibold text-lg text-center p-2 mt-auto">Inca Plano</h3></div></a></div>
         <div class="scroller-item"><a href="sistema-respiratorio.html"><div class="card-box"><img src="Extracto-de-propoleo.png" class="card-image"><h3 class="font-semibold text-lg text-center p-2 mt-auto">Extracto Propóleo</h3></div></a></div>
-
         <div class="scroller-item"><a href="Sistema-oseo.html"><div class="card-box"><img src="colageno-inkolag.png" class="card-image"><h3 class="font-semibold text-lg text-center p-2 mt-auto">Colágeno Inkolag</h3></div></a></div>
         <div class="scroller-item"><a href="Sistema-oseo.html"><div class="card-box"><img src="Cartiplus.png" class="card-image"><h3 class="font-semibold text-lg text-center p-2 mt-auto">Cartiplus</h3></div></a></div>
-
         <div class="scroller-item"><a href="sistema-digestivo.html"><div class="card-box"><img src="herbalax-kids.png" class="card-image"><h3 class="font-semibold text-lg text-center p-2 mt-auto">Herbalax Kids</h3></div></a></div>
         <div class="scroller-item"><a href="sistema-digestivo.html"><div class="card-box"><img src="gastrinol.png" class="card-image"><h3 class="font-semibold text-lg text-center p-2 mt-auto">Gastrinol</h3></div></a></div>
-
         <div class="scroller-item"><a href="sistema-nervioso.html"><div class="card-box"><img src="neuroflorina.png" class="card-image"><h3 class="font-semibold text-lg text-center p-2 mt-auto">Neuroflorina</h3></div></a></div>
         <div class="scroller-item"><a href="sistema-nervioso.html"><div class="card-box"><img src="paz.png" class="card-image"><h3 class="font-semibold text-lg text-center p-2 mt-auto">Paz Gotas</h3></div></a></div>
-
         <div class="scroller-item"><a href="sistema-urinario.html"><div class="card-box"><img src="prostatin.png" class="card-image"><h3 class="font-semibold text-lg text-center p-2 mt-auto">Prostatin</h3></div></a></div>
         <div class="scroller-item"><a href="sistema-urinario.html"><div class="card-box"><img src="urynol.png" class="card-image"><h3 class="font-semibold text-lg text-center p-2 mt-auto">Urynol</h3></div></a></div>
-
         <div class="scroller-item"><a href="sistema-glandular.html"><div class="card-box"><img src="stevia.png" class="card-image"><h3 class="font-semibold text-lg text-center p-2 mt-auto">Stevia</h3></div></a></div>
         <div class="scroller-item"><a href="sistema-glandular.html"><div class="card-box"><img src="diabalex.png" class="card-image"><h3 class="font-semibold text-lg text-center p-2 mt-auto">Diabalex</h3></div></a></div>
-
         <div class="scroller-item"><a href="sistema-inmune.html"><div class="card-box"><img src="anamu.png" class="card-image"><h3 class="font-semibold text-lg text-center p-2 mt-auto">Anamú</h3></div></a></div>
         <div class="scroller-item"><a href="sistema-inmune.html"><div class="card-box"><img src="sacha-jergon.png" class="card-image"><h3 class="font-semibold text-lg text-center p-2 mt-auto">Sacha Jergón</h3></div></a></div>
       </div>
