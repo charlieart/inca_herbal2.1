@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema Óseo - Inca Herbal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-green-50 text-gray-800 flex min-h-screen flex-col">
+
+  <header class="bg-white shadow-md py-4 relative z-50">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      
+      <a href="index.html" class="flex items-center gap-2 text-green-800 font-bold hover:opacity-80 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+        <span class="hidden sm:inline">Inicio</span>
+      </a>
+
+      <div class="flex items-center gap-4">
+        <h1 class="text-xl font-bold text-green-800">Inca Herbal</h1>
+        <button id="menu-toggle" class="text-green-800 focus:outline-none hover:bg-green-50 p-2 rounded-full transition">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+
+      <nav id="nav-menu" class="hidden absolute top-full right-4 mt-2 w-64 bg-white shadow-2xl rounded-xl border border-gray-100 overflow-hidden">
+        <div class="bg-green-800 text-white p-3 text-center font-bold text-sm uppercase tracking-wider">Categorías</div>
+        <ul class="flex flex-col text-left">
+          <li><a href="sistema-respiratorio.html" class="nav-link"><span class="nav-icon bg-green-500"></span>Sistema Respiratorio</a></li>
+          <li><a href="Sistema-oseo.html" class="nav-link"><span class="nav-icon bg-yellow-600"></span>Sistema Óseo</a></li>
+          <li><a href="sistema-digestivo.html" class="nav-link"><span class="nav-icon bg-green-700"></span>Sistema Digestivo</a></li>
+          <li><a href="sistema-nervioso.html" class="nav-link"><span class="nav-icon bg-blue-800"></span>Sistema Nervioso</a></li>
+          <li><a href="sistema-urinario.html" class="nav-link"><span class="nav-icon bg-red-700"></span>Sistema Urinario</a></li>
+          <li><a href="sistema-glandular.html" class="nav-link"><span class="nav-icon bg-pink-500"></span>Sistema Glandular</a></li>
+          <li><a href="sistema-inmune.html" class="nav-link"><span class="nav-icon bg-teal-600"></span>Sistema Inmune</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-1 py-10">
+    <div class="container mx-auto px-4">
+      
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-8" style="color: #7f5539;">Sistema Óseo</h2>
+        
+        <div class="flex justify-center">
+            <p class="text-lg max-w-4xl leading-relaxed p-8 rounded-2xl shadow-lg" 
+               style="background-color: #263A41; color: #FFFFFF;">
+              Los suplementos naturales para el sistema óseo ayudan a fortalecer huesos y articulaciones, aliviar dolores musculares y prevenir el desgaste con el paso del tiempo. Gracias al colágeno y al magnesio, brindan elasticidad, movilidad y bienestar, permitiendo que cada movimiento se sienta más libre, más firme y con menos dolor.
+            </p>
+        </div>
+      </div>
+
+      <div class="products-grid">
+        
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-yellow-600 group">
+          <img src="colageno-inkolag.png" alt="Colágeno Inkolag" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2" style="color: #7f5539;">Colágeno Inkolag</h3>
+            <p class="text-sm text-gray-600 mb-4">Fortalecimiento de huesos y articulaciones.</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg text-center transition group-hover:opacity-90" style="background-color: #7f5539;">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20deseo%20informaci%C3%B3n%20sobre%20el%20Col%C3%A1geno%20Inkolag" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-yellow-600 group">
+          <img src="colageno-colagen.png" alt="Colágeno Colagen" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2" style="color: #7f5539;">Colágeno Colagen</h3>
+            <p class="text-sm text-gray-600 mb-4">Suplemento esencial para la salud ósea.</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg text-center transition group-hover:opacity-90" style="background-color: #7f5539;">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20quisiera%20adquirir%20el%20Col%C3%A1geno%20Colagen" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-yellow-600 group">
+          <img src="Collagen-plus.png" alt="Collagen Plus" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2" style="color: #7f5539;">Collagen Plus</h3>
+            <p class="text-sm text-gray-600 mb-4">Fórmula avanzada con extra absorción.</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg text-center transition group-hover:opacity-90" style="background-color: #7f5539;">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20me%20interesa%20el%20Collagen%20Plus" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-yellow-600 group">
+          <img src="Cartiplus.png" alt="Cartiplus" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2" style="color: #7f5539;">Cartiplus</h3>
+            <p class="text-sm text-gray-600 mb-4">Regenerador de cartílago natural.</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg text-center transition group-hover:opacity-90" style="background-color: #7f5539;">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20deseo%20comprar%20Cartiplus" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-yellow-600 group">
+          <img src="Anaconda-pomada.png" alt="Pomada de Anaconda" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2" style="color: #7f5539;">Pomada de Anaconda</h3>
+            <p class="text-sm text-gray-600 mb-4">Alivio tópico para dolores musculares.</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg text-center transition group-hover:opacity-90" style="background-color: #7f5539;">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20estoy%20interesado%20en%20la%20Pomada%20de%20Anaconda" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-yellow-600 group">
+          <img src="Citrato-de-potasio.png" alt="Citrato de Potasio" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2" style="color: #7f5539;">Citrato de Potasio</h3>
+            <p class="text-sm text-gray-600 mb-4">Ayuda a la función muscular y nerviosa.</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg text-center transition group-hover:opacity-90" style="background-color: #7f5539;">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Citrato%20de%20Potasio" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-yellow-600 group">
+          <img src="Citrato-de-magnesio.png" alt="Citrato de Magnesio" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2" style="color: #7f5539;">Citrato de Magnesio</h3>
+            <p class="text-sm text-gray-600 mb-4">Relajante muscular y fijador de calcio.</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg text-center transition group-hover:opacity-90" style="background-color: #7f5539;">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20deseo%20adquirir%20el%20Citrato%20de%20Magnesio" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-yellow-600 group">
+          <img src="Cloruro-de-magnesio.png" alt="Cloruro de Magnesio" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2" style="color: #7f5539;">Cloruro de Magnesio</h3>
+            <p class="text-sm text-gray-600 mb-4">Equilibrio mineral para huesos fuertes.</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg text-center transition group-hover:opacity-90" style="background-color: #7f5539;">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20me%20interesa%20el%20Cloruro%20de%20Magnesio" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-green-800 text-white text-center py-3 text-sm w-full mt-auto">
+    <p>© 2025 Inca Herbal. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

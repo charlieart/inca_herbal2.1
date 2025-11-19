@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema Inmune - Inca Herbal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-green-50 text-gray-800 flex min-h-screen flex-col">
+
+  <header class="bg-white shadow-md py-4 relative z-50">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      
+      <a href="index.html" class="flex items-center gap-2 text-green-800 font-bold hover:opacity-80 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+        <span class="hidden sm:inline">Inicio</span>
+      </a>
+
+      <div class="flex items-center gap-4">
+        <h1 class="text-xl font-bold text-green-800">Inca Herbal</h1>
+        <button id="menu-toggle" class="text-green-800 focus:outline-none hover:bg-green-50 p-2 rounded-full transition">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+
+      <nav id="nav-menu" class="hidden absolute top-full right-4 mt-2 w-64 bg-white shadow-2xl rounded-xl border border-gray-100 overflow-hidden">
+        <div class="bg-green-800 text-white p-3 text-center font-bold text-sm uppercase tracking-wider">Categorías</div>
+        <ul class="flex flex-col text-left">
+          <li><a href="sistema-respiratorio.html" class="nav-link"><span class="nav-icon bg-green-500"></span>Sistema Respiratorio</a></li>
+          <li><a href="Sistema-oseo.html" class="nav-link"><span class="nav-icon bg-yellow-600"></span>Sistema Óseo</a></li>
+          <li><a href="sistema-digestivo.html" class="nav-link"><span class="nav-icon bg-green-700"></span>Sistema Digestivo</a></li>
+          <li><a href="sistema-nervioso.html" class="nav-link"><span class="nav-icon bg-blue-800"></span>Sistema Nervioso</a></li>
+          <li><a href="sistema-urinario.html" class="nav-link"><span class="nav-icon bg-red-700"></span>Sistema Urinario</a></li>
+          <li><a href="sistema-glandular.html" class="nav-link"><span class="nav-icon bg-pink-500"></span>Sistema Glandular</a></li>
+          <li><a href="sistema-inmune.html" class="nav-link"><span class="nav-icon bg-teal-600"></span>Sistema Inmune</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-1 py-10">
+    <div class="container mx-auto px-4">
+      
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-8" style="color: #0a8574;">Sistema Inmune</h2>
+        
+        <div class="flex justify-center">
+            <p class="text-lg max-w-4xl leading-relaxed p-8 rounded-2xl shadow-lg" 
+               style="background-color: #ffd91e; color: #0a8574;">
+              Los productos naturales para el sistema inmune fortalecen las defensas, alivian problemas respiratorios y reducen inflamaciones de forma segura. Con aceites orgánicos y extractos depurativos, promueven la limpieza interna y protegen el organismo sin químicos ni efectos adversos.
+            </p>
+        </div>
+      </div>
+
+      <div class="products-grid">
+        
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-teal-600 group">
+          <img src="anamu.png" alt="Anamú" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2" style="color: #0a8574;">Anamú</h3>
+            <p class="text-sm text-gray-600 mb-4">Refuerzo inmunológico natural.</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg text-center transition group-hover:opacity-90" style="background-color: #0a8574;">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20deseo%20adquirir%20Anam%C3%BA%20para%20reforzar%20mi%20sistema%20inmune" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-teal-600 group">
+          <img src="sacha-jergon.png" alt="Sacha Jergón" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2" style="color: #0a8574;">Sacha Jergón</h3>
+            <p class="text-sm text-gray-600 mb-4">Potente antiviral amazónico.</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg text-center transition group-hover:opacity-90" style="background-color: #0a8574;">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20estoy%20interesado%20en%20el%20Sacha%20Jerg%C3%B3n" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-teal-600 group">
+          <img src="aceite-de-copaiba.png" alt="Aceite de Copaiba" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2" style="color: #0a8574;">Aceite de Copaiba</h3>
+            <p class="text-sm text-gray-600 mb-4">Antiinflamatorio y cicatrizante.</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg text-center transition group-hover:opacity-90" style="background-color: #0a8574;">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20quisiera%20informaci%C3%B3n%20sobre%20el%20Aceite%20de%20Copaiba" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-teal-600 group">
+          <img src="aceite-de-coco.png" alt="Aceite de Coco" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2" style="color: #0a8574;">Aceite de Coco</h3>
+            <p class="text-sm text-gray-600 mb-4">Fuente de energía y defensa antiviral.</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg text-center transition group-hover:opacity-90" style="background-color: #0a8574;">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20deseo%20comprar%20Aceite%20de%20Coco" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-teal-600 group">
+          <img src="aceite-de-copaiba-p.png" alt="Aceite de Copaiba Premium" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2" style="color: #0a8574;">Aceite de Copaiba P.</h3>
+            <p class="text-sm text-gray-600 mb-4">Concentrado premium para máxima protección.</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg text-center transition group-hover:opacity-90" style="background-color: #0a8574;">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20me%20interesa%20el%20Aceite%20de%20Copaiba%20Premium" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-teal-600 group">
+          <img src="sangre-de-grado.png" alt="Sangre de Grado" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2" style="color: #0a8574;">Sangre de Grado</h3>
+            <p class="text-sm text-gray-600 mb-4">Cicatrizante interno y externo.</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg text-center transition group-hover:opacity-90" style="background-color: #0a8574;">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20deseo%20adquirir%20Sangre%20de%20Grado" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-green-800 text-white text-center py-3 text-sm w-full mt-auto">
+    <p>© 2025 Inca Herbal. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

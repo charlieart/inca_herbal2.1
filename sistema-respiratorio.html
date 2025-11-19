@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema Respiratorio - Inca Herbal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-green-50 text-gray-800 flex min-h-screen flex-col">
+
+  <header class="bg-white shadow-md py-4 relative z-50">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      
+      <a href="index.html" class="flex items-center gap-2 text-green-800 font-bold hover:opacity-80 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+        <span class="hidden sm:inline">Inicio</span>
+      </a>
+
+      <div class="flex items-center gap-4">
+        <h1 class="text-xl font-bold text-green-800">Inca Herbal</h1>
+        
+        <button id="menu-toggle" class="text-green-800 focus:outline-none hover:bg-green-50 p-2 rounded-full transition">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+
+      <nav id="nav-menu" class="hidden absolute top-full right-4 mt-2 w-64 bg-white shadow-2xl rounded-xl border border-gray-100 overflow-hidden">
+        <div class="bg-green-800 text-white p-3 text-center font-bold text-sm uppercase tracking-wider">
+          Categorías
+        </div>
+        <ul class="flex flex-col text-left">
+          <li><a href="sistema-respiratorio.html" class="nav-link"><span class="nav-icon bg-green-500"></span>Sistema Respiratorio</a></li>
+          <li><a href="Sistema-oseo.html" class="nav-link"><span class="nav-icon bg-yellow-600"></span>Sistema Óseo</a></li>
+          <li><a href="sistema-digestivo.html" class="nav-link"><span class="nav-icon bg-green-700"></span>Sistema Digestivo</a></li>
+          <li><a href="sistema-nervioso.html" class="nav-link"><span class="nav-icon bg-blue-800"></span>Sistema Nervioso</a></li>
+          <li><a href="sistema-urinario.html" class="nav-link"><span class="nav-icon bg-red-700"></span>Sistema Urinario</a></li>
+          <li><a href="sistema-glandular.html" class="nav-link"><span class="nav-icon bg-pink-500"></span>Sistema Glandular</a></li>
+          <li><a href="sistema-inmune.html" class="nav-link"><span class="nav-icon bg-teal-600"></span>Sistema Inmune</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="flex-1 py-10">
+    <div class="container mx-auto px-4">
+      
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-green-800 mb-8">Sistema Respiratorio</h2>
+        
+        <div class="flex justify-center">
+            <p class="text-lg max-w-4xl leading-relaxed p-8 rounded-2xl shadow-lg" 
+               style="background-color: #E2704B; color: #FFFFFF;">
+              Los jarabes naturales con látex de plátano, miel y propóleo son efectivos contra la tos, asma y rinitis. Actúan como expectorantes, desinflamantes y fortalecen el sistema inmunológico. Su combinación con hierbas medicinales alivia el dolor de garganta y ayuda a combatir infecciones respiratorias de forma natural.
+            </p>
+        </div>
+      </div>
+
+      <div class="products-grid">
+        
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-green-500 group">
+          <img src="Inca-plano.png" alt="Inca Plano" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2 text-green-800">Inca Plano</h3>
+            <p class="text-sm text-gray-600 mb-4">Alergias respiratorias.</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg bg-green-700 text-center group-hover:bg-green-800 transition">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20deseo%20informaci%C3%B3n%20sobre%20el%20Inca%20Plano" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-green-500 group">
+          <img src="Extracto-de-propoleo.png" alt="Extracto de Propóleo" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2 text-green-800">Extracto de Propóleo</h3>
+            <p class="text-sm text-gray-600 mb-4">Antibiótico natural.</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg bg-green-700 text-center group-hover:bg-green-800 transition">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20quisiera%20adquirir%20el%20Extracto%20de%20Prop%C3%B3leo" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-green-500 group">
+          <img src="Gano-platano.png" alt="Gano Plátano" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2 text-green-800">Gano Plátano</h3>
+            <p class="text-sm text-gray-600 mb-4">Fibrosis pulmonar.</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg bg-green-700 text-center group-hover:bg-green-800 transition">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20me%20interesa%20el%20jarabe%20Gano%20Pl%C3%A1tano" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-green-500 group">
+          <img src="Jaleita-bronquial.png" alt="Jaleita Bronquial" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2 text-green-800">Jaleita Bronquial</h3>
+            <p class="text-sm text-gray-600 mb-4">Alergias respiratorias infantiles.</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg bg-green-700 text-center group-hover:bg-green-800 transition">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20deseo%20informaci%C3%B3n%20sobre%20la%20Jaleita%20Bronquial" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-green-500 group">
+          <img src="nutri-abeja.png" alt="Nutri Abeja" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2 text-green-800">Nutri Abeja</h3>
+            <p class="text-sm text-gray-600 mb-4">Antibiótico natural.</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg bg-green-700 text-center group-hover:bg-green-800 transition">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20quiero%20comprar%20el%20Nutri%20Abeja" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-green-500 group">
+          <img src="Procomiel.png" alt="Proco Miel" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2 text-green-800">Proco Miel</h3>
+            <p class="text-sm text-gray-600 mb-4">Antibiótico spray.</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg bg-green-700 text-center group-hover:bg-green-800 transition">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20estoy%20interesado%20en%20el%20spray%20Proco%20Miel" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-green-500 group">
+          <img src="Propol-fort.png" alt="Propol Fort" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2 text-green-800">Propol Fort</h3>
+            <p class="text-sm text-gray-600 mb-4">Antibiótico natural (Adultos).</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg bg-green-700 text-center group-hover:bg-green-800 transition">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20deseo%20adquirir%20el%20Propol%20Fort" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-green-500 group">
+          <img src="Propol-Plus.png" alt="Propol Plus" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2 text-green-800">Propol Plus</h3>
+            <p class="text-sm text-gray-600 mb-4">Antibiótico natural (Niños).</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg bg-green-700 text-center group-hover:bg-green-800 transition">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20quisiera%20informaci%C3%B3n%20sobre%20el%20Propol%20Plus" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card flex flex-col relative hover:shadow-2xl transition border border-transparent hover:border-green-500 group">
+          <img src="Toxi.png" alt="Toxi" class="w-full h-64 object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-bold text-xl mb-2 text-green-800">Toxi</h3>
+            <p class="text-sm text-gray-600 mb-4">Antialérgico natural.</p>
+            <div class="mt-auto w-full text-white py-2 rounded-lg bg-green-700 text-center group-hover:bg-green-800 transition">Ver Detalles</div>
+          </div>
+          <a href="https://wa.me/51933997321?text=Hola%20Inca%20Herbal%2C%20me%20interesa%20el%20producto%20Toxi" target="_blank" class="absolute inset-0 z-20"></a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-green-800 text-white text-center py-3 text-sm w-full mt-auto">
+    <p>© 2025 Inca Herbal. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
