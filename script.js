@@ -1,4 +1,4 @@
-// script.js - VERSIÓN DEFINITIVA (SCROLL CENTRADO)
+// script.js - VERSIÓN MAESTRA FINAL
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Animaciones Hero
@@ -15,17 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const u = document.getElementById('txt2underline');
     if(u) setTimeout(() => u.classList.add('active'), 1900);
 
-    // --- CORRECCIÓN: FLECHA SCROLL AL CENTRO ---
+    // Flecha Scroll
     const arrow = document.getElementById('scrollDownArrow');
     if(arrow) {
         setTimeout(() => arrow.classList.add('visible'), 2500);
-        arrow.addEventListener('click', (e) => {
-            e.preventDefault(); // Evita comportamientos extraños
-            const promo = document.getElementById('promociones');
-            if(promo) {
-                // 'center' obliga al navegador a poner la sección justo en el medio de la pantalla
-                promo.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
+        arrow.addEventListener('click', () => {
+            const promo = document.getElementById('promociones') || document.querySelector('.promotions-section');
+            if(promo) promo.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     }
 
@@ -52,12 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function startUrynolTimer(duration) {
-    let timer = duration, saved = localStorage.getItem('timerPromoV3');
+    let timer = duration, saved = localStorage.getItem('timerPromoV2');
     if(saved) {
         let diff = Math.floor((new Date().getTime() - parseInt(saved))/1000);
         timer = duration - diff;
-        if(timer < 0) { timer = duration; localStorage.setItem('timerPromoV3', new Date().getTime().toString()); }
-    } else localStorage.setItem('timerPromoV3', new Date().getTime().toString());
+        if(timer < 0) { timer = duration; localStorage.setItem('timerPromoV2', new Date().getTime().toString()); }
+    } else localStorage.setItem('timerPromoV2', new Date().getTime().toString());
 
     setInterval(() => {
         let h = parseInt(timer/3600,10), m = parseInt((timer%3600)/60,10), s = parseInt(timer%60,10);
@@ -66,7 +62,7 @@ function startUrynolTimer(duration) {
             const v = c.querySelectorAll('.time-val');
             if(v.length>=3){ v[0].textContent=h; v[1].textContent=m; v[2].textContent=s; }
         });
-        if(--timer<0) { timer = duration; localStorage.setItem('timerPromoV3', new Date().getTime().toString()); }
+        if(--timer<0) { timer = duration; localStorage.setItem('timerPromoV2', new Date().getTime().toString()); }
     }, 1000);
 }
 
@@ -93,7 +89,7 @@ class InfiniteSlider {
         this.scroller.innerHTML = html.repeat(numCopies); 
         setTimeout(() => {
             this.maxScroll = this.scroller.scrollWidth / numCopies;
-            if (this.options.direction === 'right' || this.options.isFullWidthSlide) {
+            if (this.options.direction === 'right' || this.opts.isFullWidthSlide) {
                 this.scroller.scrollLeft = this.maxScroll; 
             }
         }, 200);
