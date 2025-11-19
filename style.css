@@ -1,4 +1,4 @@
-/* style.css - VERSIÓN MAESTRA FINAL (HERO ARMÓNICO + OFERTAS ESTABLES) */
+/* style.css - VERSIÓN FINAL (HERO MÓVIL CORREGIDO) */
 
 /* --- 1. BASES Y ANIMACIONES --- */
 body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
@@ -13,13 +13,13 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
 .underline-anim { display: block; height: 3px; background: #228142; width: 0; transition: width 0.8s ease-out; margin: 0.15em auto 0; }
 .underline-anim.active { width: 100%; }
 
-/* --- 2. HERO SECTION (ESPACIADO Y ARMÓNICO) --- */
+/* --- 2. HERO SECTION (Escritorio) --- */
 .hero-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 90vh; /* Altura generosa para dar aire */
+  min-height: 90vh; 
   max-height: 900px;
   width: 100%;
   position: relative;
@@ -29,27 +29,25 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
 }
 
 #logo {
-  width: 180px; /* Tamaño equilibrado */
+  width: 180px; 
   height: auto;
-  margin-bottom: 2.5rem; /* Separación con el texto */
+  margin-bottom: 2.5rem; 
 }
 
-/* Contenedor del texto principal */
-.hero-section > div.w-48 { /* Apunta al div del texto que tiene clase w-48 en HTML pero queremos overriding */
+.hero-section > div.w-48 {
   width: auto !important; 
   max-width: 90%;
-  margin-bottom: 3.5rem !important; /* Separación generosa con el botón */
+  margin-bottom: 3.5rem !important; 
 }
 
-/* Botón de Contacto */
 #contactBtn {
   margin-top: 0;
-  margin-bottom: 4rem; /* Espacio amplio antes de la flecha */
+  margin-bottom: 4rem; 
   font-size: 1rem;
   padding: 1rem 2.5rem;
 }
 
-/* FLECHA SCROLL DOWN (SUTIL Y ELEGANTE) */
+/* Flecha Scroll Down */
 .scroll-down-arrow {
   position: absolute;
   bottom: 30px;
@@ -60,7 +58,7 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
   align-items: center;
   gap: 4px;
   color: #166534;
-  font-size: 0.65rem; /* Texto pequeño */
+  font-size: 0.65rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -71,7 +69,7 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
   cursor: pointer;
   z-index: 10;
 }
-.scroll-down-arrow svg { width: 16px; height: 16px; stroke-width: 2; } /* Icono pequeño */
+.scroll-down-arrow svg { width: 16px; height: 16px; stroke-width: 2; }
 .scroll-down-arrow.visible { opacity: 1; }
 .scroll-down-arrow:hover { transform: translateX(-50%) translateY(3px); opacity: 1; }
 
@@ -90,7 +88,6 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
   overflow: hidden;
 }
 
-/* Wrapper General */
 .carousel-wrapper {
   position: relative;
   width: 100%;
@@ -100,13 +97,11 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
   padding: 0;
 }
 
-/* Pista de desplazamiento */
 .scroller {
   display: flex;
   width: 100%;
   overflow-x: auto;
   cursor: grab;
-  /* SNAP para centrado automático en ofertas */
   scroll-snap-type: x mandatory; 
   scroll-behavior: smooth; 
   -ms-overflow-style: none; 
@@ -129,7 +124,6 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
   justify-content: center;
 }
 
-/* Contenedor Interno (Texto Izq / Imagen Der) */
 .offer-container-inner {
   display: flex;
   align-items: center;
@@ -138,20 +132,18 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 80px; /* Padding lateral para flechas */
+  padding: 1rem 80px;
   min-height: 500px;
 }
 
 .promo-content { flex: 1; z-index: 2; text-align: left; }
 .promo-image-col { flex: 1; display: flex; justify-content: center; align-items: center; position: relative; }
 
-/* Elementos de Texto Oferta */
 .promo-badge { padding: 0.5rem 1.2rem; border-radius: 30px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 .promo-title { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; color: #1e4a1e; margin-bottom: 0.5rem; font-weight: 800; }
 .promo-subtitle { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 600; margin-bottom: 1.5rem; }
 .promo-lead { font-size: 1.1rem; line-height: 1.6; color: #457b9d; margin-bottom: 2rem; max-width: 550px; }
 
-/* Módulo Precio/Timer */
 .offer-module { display: flex; flex-wrap: wrap; gap: 30px; margin-bottom: 2.5rem; align-items: center; }
 .price-card { background: #ffffff; padding: 0.8rem 2rem; border-radius: 15px; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15); border-left: 5px solid; position: relative; }
 .discount-pill { position: absolute; top: -10px; right: -10px; color: white; font-size: 0.75rem; font-weight: bold; padding: 0.3rem 0.8rem; border-radius: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
@@ -165,25 +157,17 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
 .time-label { font-size: 0.6rem; text-transform: uppercase; color: #aaa; }
 .timer-separator { font-size: 1.5rem; font-weight: bold; color: #2b2b2b; padding-top: 0.2rem; }
 
-/* Botón CTA */
 .btn-cta-promo { color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(0,0,0,0.2); transition: all 0.3s ease; display: inline-block; animation: pulse 2s infinite; }
 .btn-cta-promo:hover { transform: translateY(-3px); filter: brightness(1.1); }
-@keyframes pulse { 
-  0% { box-shadow: 0 0 0 0 rgba(34, 129, 66, 0.7); } 
-  70% { box-shadow: 0 0 0 15px rgba(34, 129, 66, 0); } 
-  100% { box-shadow: 0 0 0 0 rgba(34, 129, 66, 0); } 
-}
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(34, 129, 66, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(34, 129, 66, 0); } 100% { box-shadow: 0 0 0 0 rgba(34, 129, 66, 0); } }
 .guarantee { margin-top: 1rem; font-size: 0.85rem; color: #666; display: flex; align-items: center; gap: 8px; }
-
-/* Imágenes */
 .product-img-desktop { width: 100%; max-width: 500px; height: auto; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2)); z-index: 1; animation: float 6s ease-in-out infinite; }
 .bg-circle { display: none; }
 .mobile-product-container { display: none; } 
 @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
 
-/* --- 4. CARRUSELES PEQUEÑOS (Categorías/Productos) --- */
+/* --- 4. CARRUSELES PEQUEÑOS --- */
 #carousel-categorias .scroller, #carousel-productos .scroller { gap: 1.5rem; scroll-snap-type: none; }
-
 .scroller-item { flex: 0 0 auto; width: 16rem; transition: transform 0.3s ease; }
 .scroller-item:hover { transform: translateY(-5px); }
 .card-image { height: 14rem; width: 100%; object-fit: contain; background-color: #fff !important; padding: 1rem; pointer-events: none; }
@@ -191,27 +175,17 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
 .card-box:hover { border-color: #22c55e; }
 .scroller-item a { text-decoration: none; color: inherit; display: block; height: 100%; }
 
-/* --- 5. BOTONES DE NAVEGACIÓN --- */
-.nav-btn {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  width: 45px; height: 45px; border-radius: 50%;
-  background-color: rgba(34, 129, 66, 0.8); color: white; border: none;
-  cursor: pointer; z-index: 50; 
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.2s; opacity: 0.8;
-}
+.nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 45px; height: 45px; border-radius: 50%; background-color: rgba(34, 129, 66, 0.8); color: white; border: none; cursor: pointer; z-index: 50; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.2s; opacity: 0.8; }
 .nav-btn:hover { background-color: #165e30; transform: translateY(-50%) scale(1.1); }
 .nav-btn.prev { left: 10px; }
 .nav-btn.next { right: 10px; }
 
-/* --- 6. MENÚ SÁNDWICH --- */
 #nav-menu { transition: transform 0.2s ease-out, opacity 0.2s ease-out; transform-origin: top right; }
 .nav-link { display: flex; align-items: center; padding: 0.75rem 1.5rem; color: #4b5563; border-bottom: 1px solid #f3f4f6; }
 .nav-link:hover { background-color: #f0fdf4; color: #166534; }
 .nav-link:last-child { border-bottom: none; }
 .nav-icon { width: 8px; height: 8px; border-radius: 50%; margin-right: 10px; }
 
-/* --- 7. LAYOUT GENERAL --- */
 .section-50vh { min-height: 50vh; padding: 4rem 0; background-color: #fff; }
 .bg-alt { background-color: #f0fdf4; }
 .products-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 2rem; padding: 2rem; max-width: 1200px; margin: 0 auto; }
@@ -219,14 +193,27 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
 @media (min-width: 640px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
 
-/* --- RESPONSIVE MÓVIL --- */
+/* --- RESPONSIVE MÓVIL (CORRECCIÓN HERO Y OFERTAS) --- */
 @media (max-width: 968px) {
-  /* Hero */
-  .hero-section { min-height: 100vh; max-height: none; padding-top: 5rem; justify-content: center; }
-  .scroll-down-arrow { bottom: 15px; }
-  #logo { width: 140px; margin-bottom: 1.5rem; }
+  /* AJUSTES DEL HERO EN MÓVIL PARA SUBIR TODO */
+  .hero-section { 
+    min-height: 100vh; 
+    max-height: none; 
+    /* Agregamos padding-top para bajar un poco, pero no tanto como antes */
+    padding-top: 4rem; 
+    justify-content: flex-start; /* Alinear arriba en lugar de centro */
+  }
+  
+  #logo { width: 140px; margin-bottom: 1.5rem; margin-top: 2rem; /* Margen superior extra */ }
   .hero-section > div.w-48 { margin-bottom: 2rem !important; }
-  #contactBtn { margin-bottom: 3rem; }
+  #contactBtn { margin-bottom: 2rem; } /* Reducido para subir la flecha */
+
+  /* Flecha visible y más arriba */
+  .scroll-down-arrow { 
+    bottom: 25%; /* Posición relativa porcentual para asegurar visibilidad */
+    opacity: 1 !important;
+    animation: bounce 2s infinite 1s; 
+  }
 
   /* Ofertas */
   .offer-container-inner { flex-direction: column; text-align: center; padding: 2rem 1rem; gap: 2rem; }
@@ -237,7 +224,7 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
   .mobile-img { max-width: 80%; height: auto; max-height: 300px; object-fit: contain; margin: 0 auto; animation: float 6s infinite; display: block; }
   .promo-lead { margin-left: auto; margin-right: auto; }
   
-  /* Flechas Visibles en Móvil */
+  /* Flechas Oferta */
   .nav-btn { width: 35px; height: 35px; opacity: 0.6; }
   #offer-carousel-wrapper .nav-btn.prev { left: 2px; }
   #offer-carousel-wrapper .nav-btn.next { right: 2px; }

@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => arrow.classList.add('visible'), 2500);
         arrow.addEventListener('click', () => {
             const promo = document.getElementById('promociones') || document.querySelector('.promotions-section');
-            if(promo) promo.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Scroll al centro de la sección
+            if(promo) promo.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     }
 
@@ -48,12 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function startUrynolTimer(duration) {
-    let timer = duration, saved = localStorage.getItem('timerPromoV3');
+    let timer = duration, saved = localStorage.getItem('timerPromoV2');
     if(saved) {
         let diff = Math.floor((new Date().getTime() - parseInt(saved))/1000);
         timer = duration - diff;
-        if(timer < 0) { timer = duration; localStorage.setItem('timerPromoV3', new Date().getTime().toString()); }
-    } else localStorage.setItem('timerPromoV3', new Date().getTime().toString());
+        if(timer < 0) { timer = duration; localStorage.setItem('timerPromoV2', new Date().getTime().toString()); }
+    } else localStorage.setItem('timerPromoV2', new Date().getTime().toString());
 
     setInterval(() => {
         let h = parseInt(timer/3600,10), m = parseInt((timer%3600)/60,10), s = parseInt(timer%60,10);
@@ -62,7 +62,7 @@ function startUrynolTimer(duration) {
             const v = c.querySelectorAll('.time-val');
             if(v.length>=3){ v[0].textContent=h; v[1].textContent=m; v[2].textContent=s; }
         });
-        if(--timer<0) { timer = duration; localStorage.setItem('timerPromoV3', new Date().getTime().toString()); }
+        if(--timer<0) { timer = duration; localStorage.setItem('timerPromoV2', new Date().getTime().toString()); }
     }, 1000);
 }
 
