@@ -19,7 +19,7 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 92vh; /* Un poco menos de 100 para asegurar visibilidad */
+  min-height: 85vh; /* Un poco menos de 100 para asegurar visibilidad */
   width: 100%;
   position: relative;
   background-color: white;
@@ -243,4 +243,5 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
   .nav-btn { display: none; } /* Ocultamos flechas en móvil */
   .scroller-item { width: 14rem; }
   .offer-slide { flex: 0 0 100%; width: 100vw; }
+
 }
