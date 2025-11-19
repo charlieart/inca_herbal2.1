@@ -1,173 +1,118 @@
-/* style.css - VERSIÓN FINAL (HERO MÓVIL CORREGIDO) */
+/* style.css - VERSIÓN CORREGIDA (HERO VISIBLE + MENÚ FUNCIONAL) */
 
-/* --- 1. BASES Y ANIMACIONES --- */
+/* --- 1. BASES --- */
 body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
 
-.fade-in-up { animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+/* Animaciones */
 @keyframes fadeInUp { 
   from { opacity: 0; transform: translateY(20px); } 
   to { opacity: 1; transform: translateY(0); } 
 }
-.text-anim { opacity: 0; transform: translateY(15px); }
+
+/* Clase para activar la animación */
+.animate-enter {
+  animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Estado inicial oculto para elementos animados */
+.start-hidden { opacity: 0; }
 
 .underline-anim { display: block; height: 3px; background: #228142; width: 0; transition: width 0.8s ease-out; margin: 0.15em auto 0; }
 .underline-anim.active { width: 100%; }
 
-/* --- 2. HERO SECTION (Escritorio) --- */
+/* --- 2. HEADER Y MENÚ (Z-INDEX ALTO) --- */
+header { position: relative; z-index: 100; } /* Asegura que el menú esté encima de todo */
+
+#nav-menu { 
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out; 
+  transform-origin: top right; 
+  z-index: 101; /* El menú desplegable aún más arriba */
+}
+.nav-link { display: flex; align-items: center; padding: 0.75rem 1.5rem; color: #4b5563; border-bottom: 1px solid #f3f4f6; }
+.nav-link:hover { background-color: #f0fdf4; color: #166534; }
+.nav-icon { width: 8px; height: 8px; border-radius: 50%; margin-right: 10px; }
+
+/* --- 3. HERO SECTION --- */
 .hero-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 90vh; 
-  max-height: 900px;
-  width: 100%;
-  position: relative;
-  background-color: white;
-  padding: 2rem;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  min-height: 90vh; width: 100%; position: relative;
+  background-color: white; padding: 6rem 2rem 2rem 2rem; /* Padding top alto para no chocar con header */
   box-sizing: border-box;
 }
 
-#logo {
-  width: 180px; 
-  height: auto;
-  margin-bottom: 2.5rem; 
-}
+#logo { width: 180px; height: auto; margin-bottom: 2.5rem; }
+.hero-text-wrap { margin-bottom: 3.5rem; }
+#contactBtn { margin-bottom: 4rem; font-size: 1rem; padding: 1rem 2.5rem; }
 
-.hero-section > div.w-48 {
-  width: auto !important; 
-  max-width: 90%;
-  margin-bottom: 3.5rem !important; 
-}
-
-#contactBtn {
-  margin-top: 0;
-  margin-bottom: 4rem; 
-  font-size: 1rem;
-  padding: 1rem 2.5rem;
-}
-
-/* Flecha Scroll Down */
+/* Flecha Scroll */
 .scroll-down-arrow {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  color: #166534;
-  font-size: 0.65rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  text-decoration: none;
-  opacity: 0; 
-  transition: opacity 1s ease, transform 0.3s ease;
-  animation: bounce 2s infinite 3s;
-  cursor: pointer;
-  z-index: 10;
+  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  color: #166534; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+  text-decoration: none; cursor: pointer; z-index: 10;
+  opacity: 0; transition: opacity 1s ease; animation: bounce 2s infinite 3s;
 }
-.scroll-down-arrow svg { width: 16px; height: 16px; stroke-width: 2; }
 .scroll-down-arrow.visible { opacity: 1; }
-.scroll-down-arrow:hover { transform: translateX(-50%) translateY(3px); opacity: 1; }
+.scroll-down-arrow svg { width: 16px; height: 16px; stroke-width: 2; }
+@keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); } 40% { transform: translate(-50%, -5px); } 60% { transform: translate(-50%, -2px); } }
 
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
-  40% { transform: translate(-50%, -5px); }
-  60% { transform: translate(-50%, -2px); }
-}
-
-/* --- 3. SECCIÓN CARRUSEL DE OFERTAS --- */
+/* --- 4. SECCIÓN PROMOCIONES --- */
 .promotions-section {
   background: linear-gradient(135deg, #f5fdf5 0%, #e0f2f1 100%);
-  padding: 4rem 0;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
+  padding: 4rem 0; position: relative; width: 100%; overflow: hidden;
 }
 
-.carousel-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  overflow: hidden;
-  padding: 0;
-}
+.carousel-wrapper { position: relative; width: 100%; max-width: 1400px; margin: 0 auto; padding: 0; }
 
 .scroller {
-  display: flex;
-  width: 100%;
-  overflow-x: auto;
-  cursor: grab;
-  scroll-snap-type: x mandatory; 
-  scroll-behavior: smooth; 
-  -ms-overflow-style: none; 
-  scrollbar-width: none; 
-  user-select: none; 
-  -webkit-user-select: none;
+  display: flex; width: 100%; overflow-x: auto; cursor: grab;
+  -ms-overflow-style: none; scrollbar-width: none; user-select: none; -webkit-user-select: none;
 }
 .scroller::-webkit-scrollbar { display: none; }
-.scroller.active { cursor: grabbing; scroll-behavior: auto; }
+.scroller.active { cursor: grabbing; }
 
-/* --- SLIDE DE OFERTA --- */
+/* OFERTA SLIDE */
 .offer-slide {
-  flex: 0 0 100%; 
-  min-width: 100%;
-  width: 100%;
-  box-sizing: border-box;
-  scroll-snap-align: center; 
-  scroll-snap-stop: always;
-  display: flex;
-  justify-content: center;
+  flex: 0 0 100%; width: 100%; box-sizing: border-box;
+  display: flex; justify-content: center;
+  /* Quitamos scroll-snap aquí para que el JS controle el movimiento fluido */
 }
 
 .offer-container-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 4rem;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 80px;
-  min-height: 500px;
+  display: flex; align-items: center; justify-content: space-between; gap: 4rem;
+  width: 100%; max-width: 1200px; margin: 0 auto; padding: 1rem 80px; min-height: 500px;
 }
 
 .promo-content { flex: 1; z-index: 2; text-align: left; }
 .promo-image-col { flex: 1; display: flex; justify-content: center; align-items: center; position: relative; }
+.product-img-desktop { width: 100%; max-width: 500px; height: auto; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2)); z-index: 1; animation: float 6s ease-in-out infinite; }
+.bg-circle { display: none; }
+.mobile-product-container { display: none; } 
+@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
 
-.promo-badge { padding: 0.5rem 1.2rem; border-radius: 30px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-.promo-title { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; color: #1e4a1e; margin-bottom: 0.5rem; font-weight: 800; }
+/* Elementos Texto/Precio */
+.promo-badge { padding: 0.5rem 1.2rem; border-radius: 30px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; display: inline-block; margin-bottom: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.promo-title { font-size: clamp(3rem, 5vw, 4.5rem); line-height: 1.1; color: #1e4a1e; margin-bottom: 0.5rem; font-weight: 800; }
 .promo-subtitle { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 600; margin-bottom: 1.5rem; }
 .promo-lead { font-size: 1.1rem; line-height: 1.6; color: #457b9d; margin-bottom: 2rem; max-width: 550px; }
-
 .offer-module { display: flex; flex-wrap: wrap; gap: 30px; margin-bottom: 2.5rem; align-items: center; }
 .price-card { background: #ffffff; padding: 0.8rem 2rem; border-radius: 15px; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15); border-left: 5px solid; position: relative; }
 .discount-pill { position: absolute; top: -10px; right: -10px; color: white; font-size: 0.75rem; font-weight: bold; padding: 0.3rem 0.8rem; border-radius: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
 .old-price { text-decoration: line-through; color: #999; font-size: 0.9rem; }
 .current-price { font-size: 2.5rem; font-weight: 800; line-height: 1; }
 .currency { font-size: 1.2rem; vertical-align: top; margin-right: 2px; }
-
 .timer-container { display: flex; gap: 8px; text-align: center; }
 .time-box { background: #2b2b2b; color: white; padding: 0.5rem; border-radius: 8px; min-width: 50px; }
 .time-val { font-size: 1.4rem; font-weight: 700; display: block; line-height: 1; }
 .time-label { font-size: 0.6rem; text-transform: uppercase; color: #aaa; }
 .timer-separator { font-size: 1.5rem; font-weight: bold; color: #2b2b2b; padding-top: 0.2rem; }
-
 .btn-cta-promo { color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(0,0,0,0.2); transition: all 0.3s ease; display: inline-block; animation: pulse 2s infinite; }
 .btn-cta-promo:hover { transform: translateY(-3px); filter: brightness(1.1); }
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(34, 129, 66, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(34, 129, 66, 0); } 100% { box-shadow: 0 0 0 0 rgba(34, 129, 66, 0); } }
 .guarantee { margin-top: 1rem; font-size: 0.85rem; color: #666; display: flex; align-items: center; gap: 8px; }
-.product-img-desktop { width: 100%; max-width: 500px; height: auto; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2)); z-index: 1; animation: float 6s ease-in-out infinite; }
-.bg-circle { display: none; }
-.mobile-product-container { display: none; } 
-@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
 
-/* --- 4. CARRUSELES PEQUEÑOS --- */
-#carousel-categorias .scroller, #carousel-productos .scroller { gap: 1.5rem; scroll-snap-type: none; }
+/* --- 5. ITEMS CARRUSEL PEQUEÑO --- */
+#carousel-categorias .scroller, #carousel-productos .scroller { gap: 1.5rem; }
 .scroller-item { flex: 0 0 auto; width: 16rem; transition: transform 0.3s ease; }
 .scroller-item:hover { transform: translateY(-5px); }
 .card-image { height: 14rem; width: 100%; object-fit: contain; background-color: #fff !important; padding: 1rem; pointer-events: none; }
@@ -175,17 +120,20 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
 .card-box:hover { border-color: #22c55e; }
 .scroller-item a { text-decoration: none; color: inherit; display: block; height: 100%; }
 
-.nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 45px; height: 45px; border-radius: 50%; background-color: rgba(34, 129, 66, 0.8); color: white; border: none; cursor: pointer; z-index: 50; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.2s; opacity: 0.8; }
+/* --- 6. BOTONES DE NAVEGACIÓN --- */
+.nav-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 45px; height: 45px; border-radius: 50%;
+  background-color: rgba(34, 129, 66, 0.8); color: white; border: none;
+  cursor: pointer; z-index: 50; 
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.2s; opacity: 0.8;
+}
 .nav-btn:hover { background-color: #165e30; transform: translateY(-50%) scale(1.1); }
 .nav-btn.prev { left: 10px; }
 .nav-btn.next { right: 10px; }
 
-#nav-menu { transition: transform 0.2s ease-out, opacity 0.2s ease-out; transform-origin: top right; }
-.nav-link { display: flex; align-items: center; padding: 0.75rem 1.5rem; color: #4b5563; border-bottom: 1px solid #f3f4f6; }
-.nav-link:hover { background-color: #f0fdf4; color: #166534; }
-.nav-link:last-child { border-bottom: none; }
-.nav-icon { width: 8px; height: 8px; border-radius: 50%; margin-right: 10px; }
-
+/* --- 7. LAYOUT GENERAL --- */
 .section-50vh { min-height: 50vh; padding: 4rem 0; background-color: #fff; }
 .bg-alt { background-color: #f0fdf4; }
 .products-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 2rem; padding: 2rem; max-width: 1200px; margin: 0 auto; }
@@ -193,28 +141,12 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
 @media (min-width: 640px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
 
-/* --- RESPONSIVE MÓVIL (CORRECCIÓN HERO Y OFERTAS) --- */
+/* --- RESPONSIVE MÓVIL --- */
 @media (max-width: 968px) {
-  /* AJUSTES DEL HERO EN MÓVIL PARA SUBIR TODO */
-  .hero-section { 
-    min-height: 100vh; 
-    max-height: none; 
-    /* Agregamos padding-top para bajar un poco, pero no tanto como antes */
-    padding-top: 4rem; 
-    justify-content: flex-start; /* Alinear arriba en lugar de centro */
-  }
+  /* Hero */
+  .hero-section { min-height: 100vh; justify-content: center; padding-top: 5rem; }
+  .scroll-down-arrow { bottom: 15px; }
   
-  #logo { width: 140px; margin-bottom: 1.5rem; margin-top: 2rem; /* Margen superior extra */ }
-  .hero-section > div.w-48 { margin-bottom: 2rem !important; }
-  #contactBtn { margin-bottom: 2rem; } /* Reducido para subir la flecha */
-
-  /* Flecha visible y más arriba */
-  .scroll-down-arrow { 
-    bottom: 25%; /* Posición relativa porcentual para asegurar visibilidad */
-    opacity: 1 !important;
-    animation: bounce 2s infinite 1s; 
-  }
-
   /* Ofertas */
   .offer-container-inner { flex-direction: column; text-align: center; padding: 2rem 1rem; gap: 2rem; }
   .promo-content { text-align: center; width: 100%; }
@@ -224,10 +156,10 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
   .mobile-img { max-width: 80%; height: auto; max-height: 300px; object-fit: contain; margin: 0 auto; animation: float 6s infinite; display: block; }
   .promo-lead { margin-left: auto; margin-right: auto; }
   
-  /* Flechas Oferta */
-  .nav-btn { width: 35px; height: 35px; opacity: 0.6; }
-  #offer-carousel-wrapper .nav-btn.prev { left: 2px; }
-  #offer-carousel-wrapper .nav-btn.next { right: 2px; }
+  /* Botones visibles en móvil */
+  .nav-btn { opacity: 0.7; width: 35px; height: 35px; }
+  #offer-carousel-wrapper .nav-btn.prev { left: 5px; }
+  #offer-carousel-wrapper .nav-btn.next { right: 5px; }
   
   .scroller-item { width: 14rem; }
   .offer-slide { flex: 0 0 100%; width: 100vw; }
