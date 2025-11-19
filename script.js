@@ -89,7 +89,7 @@ class InfiniteSlider {
         this.scroller.innerHTML = html.repeat(numCopies); 
         setTimeout(() => {
             this.maxScroll = this.scroller.scrollWidth / numCopies;
-            if (this.options.direction === 'right' || this.options.isFullWidthSlide) {
+            if (this.options.direction === 'right' || this.opts.isFullWidthSlide) {
                 this.scroller.scrollLeft = this.maxScroll; 
             }
         }, 200);

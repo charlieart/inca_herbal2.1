@@ -1,4 +1,4 @@
-/* style.css - VERSIÓN MAESTRA FINAL */
+/* style.css - VERSIÓN FINAL (FLECHA VISIBLE EN MÓVIL) */
 
 /* --- 1. BASES Y ANIMACIONES --- */
 body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
@@ -19,8 +19,7 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 90vh; 
-  max-height: 900px;
+  min-height: 92vh; /* Un poco menos de 100 para asegurar visibilidad */
   width: 100%;
   position: relative;
   background-color: white;
@@ -34,52 +33,51 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
   margin-bottom: 2rem; 
 }
 
-/* Contenedor del texto */
 .hero-section > div.w-48 {
   width: auto !important; 
   max-width: 90%;
   margin-bottom: 3rem !important; 
 }
 
-/* Botón de Contacto */
 #contactBtn {
   margin-top: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 2rem; 
   font-size: 1rem;
   padding: 1rem 2.5rem;
 }
 
-/* FLECHA SCROLL DOWN (PEQUEÑA) */
+/* FLECHA SCROLL DOWN (Visible y Segura) */
 .scroll-down-arrow {
   position: absolute;
-  bottom: 30px;
+  bottom: 30px; /* Posición estándar escritorio */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  justify-content: center;
+  gap: 4px;
   color: #166534;
   text-decoration: none;
   opacity: 0; 
   transition: opacity 1s ease, transform 0.3s ease;
   animation: bounce 2s infinite 3s;
   cursor: pointer;
-  z-index: 10;
+  z-index: 20; /* Capa alta */
 }
 
 .scroll-down-arrow span {
-  font-size: 0.6rem; 
+  font-size: 0.65rem; 
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .scroll-down-arrow svg {
-  width: 14px;  
-  height: 14px; 
-  stroke-width: 1.5; 
+  width: 16px;  
+  height: 16px; 
+  stroke-width: 2; 
 }
 
 .scroll-down-arrow:hover {
@@ -90,14 +88,14 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
 
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
-  40% { transform: translate(-50%, -4px); }
+  40% { transform: translate(-50%, -5px); }
   60% { transform: translate(-50%, -2px); }
 }
 
 /* --- 3. SECCIÓN CARRUSEL DE OFERTAS --- */
 .promotions-section {
   background: linear-gradient(135deg, #f5fdf5 0%, #e0f2f1 100%);
-  padding: 4rem 0;
+  padding: 3rem 0;
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -176,7 +174,6 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
 .btn-cta-promo:hover { transform: translateY(-3px); filter: brightness(1.1); }
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(34, 129, 66, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(34, 129, 66, 0); } 100% { box-shadow: 0 0 0 0 rgba(34, 129, 66, 0); } }
 .guarantee { margin-top: 1rem; font-size: 0.85rem; color: #666; display: flex; align-items: center; gap: 8px; }
-
 .product-img-desktop { width: 100%; max-width: 500px; height: auto; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2)); z-index: 1; animation: float 6s ease-in-out infinite; }
 .bg-circle { display: none; }
 .mobile-product-container { display: none; } 
@@ -212,29 +209,27 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
 @media (min-width: 640px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
 
-/* --- RESPONSIVE MÓVIL --- */
+/* --- RESPONSIVE MÓVIL (CORRECCIÓN CRÍTICA) --- */
 @media (max-width: 968px) {
-  /* HERO: Espacio generoso arriba para que no se corte */
+  /* HERO MÓVIL: Altura segura y padding inferior para la flecha */
   .hero-section { 
-    min-height: 100vh; 
-    /* Padding-top aumentado para bajar el contenido */
-    padding-top: 8rem; 
-    padding-bottom: 4rem;
-    justify-content: flex-start; /* Alinear al inicio + padding */
+    min-height: 85vh; /* Deja ver un poco del contenido de abajo para intuir scroll */
+    padding-top: 5rem; 
+    padding-bottom: 5rem; /* Espacio reservado para la flecha */
+    justify-content: center; 
   }
   
   #logo { width: 140px; margin-bottom: 1.5rem; }
   .hero-section > div.w-48 { margin-bottom: 2rem !important; }
-  #contactBtn { margin-bottom: 3rem; } /* Espacio para la flecha */
   
-  /* Flecha */
+  /* FLECHA MÓVIL: Subida para que no se tape con la barra del navegador */
   .scroll-down-arrow { 
-      bottom: 15px; /* Un poco más arriba del borde */
-      opacity: 1 !important; 
-      animation: bounce 2s infinite 1s; 
+    bottom: 40px; /* Más arriba */
+    opacity: 1 !important; 
+    animation: bounce 2s infinite 1s;
   }
-  .scroll-down-arrow span { font-size: 0.55rem; }
-  .scroll-down-arrow svg { width: 12px; height: 12px; }
+  .scroll-down-arrow span { font-size: 0.6rem; }
+  .scroll-down-arrow svg { width: 14px; height: 14px; }
 
   /* Ofertas */
   .offer-container-inner { flex-direction: column; text-align: center; padding: 2rem 1rem; gap: 2rem; }
@@ -245,11 +240,7 @@ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hi
   .mobile-img { max-width: 80%; height: auto; max-height: 300px; object-fit: contain; margin: 0 auto; animation: float 6s infinite; display: block; }
   .promo-lead { margin-left: auto; margin-right: auto; }
   
-  /* Botones visibles */
-  .nav-btn { opacity: 0.7; width: 35px; height: 35px; }
-  #offer-carousel-wrapper .nav-btn.prev { left: 5px; }
-  #offer-carousel-wrapper .nav-btn.next { right: 5px; }
-  
+  .nav-btn { display: none; } /* Ocultamos flechas en móvil */
   .scroller-item { width: 14rem; }
   .offer-slide { flex: 0 0 100%; width: 100vw; }
 }
